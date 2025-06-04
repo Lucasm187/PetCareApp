@@ -44,6 +44,9 @@ android {
 }
 
 dependencies {
+    // Firebase BoM
+    implementation(platform(libs.firebase.bom))
+
     // Bibliotecas padrão + Compose
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
