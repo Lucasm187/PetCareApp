@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.google.gms)
 }
 
 android {
@@ -27,20 +28,23 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
+
     buildFeatures {
-        compose = true
+        compose = true // Deixamos habilitado, mas não vamos usar por enquanto
     }
 }
 
 dependencies {
-
+    // Bibliotecas padrão + Compose
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -49,6 +53,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    // Testes
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -56,4 +62,32 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // ROOM
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    kapt(libs.room.compiler)
+
+    // Firebase Auth + Notificações
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.messaging)
+
+    // Google Maps
+    implementation(libs.maps)
+
+    // WorkManager
+    implementation(libs.work)
+
+    // RecyclerView
+    implementation(libs.recyclerview)
+
+    // Coil (para imagens)
+    implementation(libs.coil)
+
+    // MPAndroidChart (gráficos – estrutura pronta)
+    implementation(libs.mpchart)
+
+    // MVVM (Lifecycle)
+    implementation(libs.lifecycle.viewmodel)
+    implementation(libs.lifecycle.livedata)
 }
