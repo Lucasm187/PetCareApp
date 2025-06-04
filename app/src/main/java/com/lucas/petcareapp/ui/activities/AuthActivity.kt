@@ -30,7 +30,6 @@ class AuthActivity : AppCompatActivity() {
         botaoEntrar = findViewById(R.id.btnEntrar)
         botaoCadastrar = findViewById(R.id.btnCadastrar)
 
-        // Observa o status de autenticação
         authViewModel.status.observe(this, Observer { sucesso ->
             if (sucesso == true) {
                 abrirMain()
