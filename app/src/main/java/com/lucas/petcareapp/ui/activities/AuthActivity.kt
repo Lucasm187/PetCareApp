@@ -16,6 +16,7 @@ class AuthActivity : AppCompatActivity() {
 
     private val authViewModel: AuthViewModel by viewModels()
 
+    private lateinit var campoNome: EditText
     private lateinit var campoEmail: EditText
     private lateinit var campoSenha: EditText
     private lateinit var botaoEntrar: Button
@@ -25,6 +26,7 @@ class AuthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
 
+        campoNome = findViewById(R.id.editNome)
         campoEmail = findViewById(R.id.editEmail)
         campoSenha = findViewById(R.id.editSenha)
         botaoEntrar = findViewById(R.id.btnEntrar)
@@ -56,11 +58,12 @@ class AuthActivity : AppCompatActivity() {
         }
 
         botaoCadastrar.setOnClickListener {
+            val nome = campoNome.text.toString()
             val email = campoEmail.text.toString()
             val senha = campoSenha.text.toString()
 
-            if (email.isNotEmpty() && senha.isNotEmpty()) {
-                authViewModel.cadastrar(email, senha)
+            if (nome.isNotEmpty() && email.isNotEmpty() && senha.isNotEmpty()) {
+                authViewModel.cadastrar(nome, email, senha)
             } else {
                 Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
             }

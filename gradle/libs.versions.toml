@@ -1,6 +1,7 @@
 [versions]
 agp = "8.9.1"
 kotlin = "2.0.21"
+composeCompiler = "1.5.13"
 coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -19,6 +20,8 @@ mpchart = "v3.1.0"
 lifecycle = "2.7.0"
 googleServices = "4.4.1"
 firebaseBom = "33.4.0"
+appCompat = "1.6.1"
+
 
 
 [libraries]
@@ -54,11 +57,14 @@ lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmode
 
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appCompat" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 google-gms = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+
 
 

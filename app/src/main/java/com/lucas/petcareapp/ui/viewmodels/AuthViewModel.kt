@@ -27,7 +27,7 @@ class AuthViewModel : ViewModel() {
             }
     }
 
-    fun cadastrar(email: String, senha: String) {
+    fun cadastrar(nome: String, email: String, senha: String) {
         firebaseAuth.createUserWithEmailAndPassword(email, senha)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
